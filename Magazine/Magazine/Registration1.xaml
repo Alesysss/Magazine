@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Magazine.Registration1"
+             Background="{StaticResource CenteredGradient}">
+   
+        <StackLayout Padding="20">
+        <Label Text="Регистрация" FontFamily="Montserrat" FontSize="50" TextColor="#B6174B"
+       HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="0, 20, 0, 20"/>
+       
+        <ScrollView>
+            <StackLayout>
+            
+                <Frame Margin="0, 20, 0, 0" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+               WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+            <Entry Placeholder="Фамилия" TextColor="White" FontSize="27" 
+                   PlaceholderColor="#DDA8B9" Keyboard="Text" x:Name="Surn"/>
+        </Frame>
+
+        <Frame Margin="0, 20, 0, 20" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+               WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+            <Entry Placeholder="Имя" TextColor="White" FontSize="27" 
+                   PlaceholderColor="#DDA8B9" Keyboard="Text" x:Name="Name"/>
+        </Frame>
+            
+        <Label Text="Дата рождения:" FontFamily="Montserrat" FontSize="20" TextColor="#B6174B"
+        Margin="20, -20, 0, 0" FontAttributes="Bold"/>
+        <Frame Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+            WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                    <DatePicker Format="dd-MMM-yyyy" TextColor="White" FontSize="27" x:Name="Dat"/>
+        </Frame>
+
+        <Frame Margin="0, 20, 0, 0" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+        WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+            <Entry Placeholder="Номер телефона" TextColor="White" FontSize="27" 
+            PlaceholderColor="#DDA8B9" Keyboard="Telephone" x:Name="Tel"/>
+        </Frame>
+            
+        <Frame Margin="0, 20, 0, 0" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+        WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+            <Entry Placeholder="Логин" TextColor="White" FontSize="27" 
+            PlaceholderColor="#DDA8B9" Keyboard="Default"  x:Name="Log"/>
+        </Frame>
+
+        <Frame Margin="0, 20, 0, 40" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+        WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+            <Entry Placeholder="Пароль" TextColor="White" FontSize="27" 
+            PlaceholderColor="#DDA8B9" IsPassword="True" Keyboard="Default" x:Name="Pas"/>
+        </Frame>
+
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <Button  Text="Далее" FontFamily="Montserrat" FontSize="30" x:Name="button"
+         TextColor="White" WidthRequest="340" HeightRequest="58" Margin="0, 0, 0, 10" 
+         CornerRadius="30" HorizontalOptions="Center" BackgroundColor="#B6174B" Clicked="AuthorizationReg"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Уже есть аккаунт?" FontFamily="Montserrat" FontSize="22" 
+            TextColor="#B6174B"/>
+
+                        <Button Text="ВОЙТИ" FontFamily="Montserrat" FontSize="22" TextColor="#561429"
+                 FontAttributes="Bold" BackgroundColor="Transparent" 
+                 Margin="-3, -9, 0, 0" BorderColor="Transparent" BorderWidth="0" 
+                 Padding="0" Clicked="Authorization"/>
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+     
+
+
+
+    </StackLayout>
+  
+</ContentPage>

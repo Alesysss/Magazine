@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Magazine.Profile" Background="{StaticResource CenteredGradient}">
+   
+        <StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" 
+              BackgroundColor="#B6174B" HeightRequest="70" >
+            <Label Text="Профиль" FontFamily="Montserrat" FontSize="25" TextColor="White"
+            FontAttributes="Bold" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
+
+            <Button  Text="Уведомления" FontFamily="Montserrat" FontSize="15" TextColor="#DDA8B9"
+              HorizontalOptions="EndAndExpand" BackgroundColor="#00FFFFFF" Clicked="ToNotifications" 
+              VerticalOptions="Fill" Margin="0" FontAttributes="Bold"/>
+
+        </StackLayout>
+        <StackLayout>
+
+                    <Frame Margin="0, 20, 0, 0" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+       WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                        <Entry Placeholder="Фамилия" TextColor="White" FontSize="27" 
+           PlaceholderColor="#DDA8B9" Keyboard="Text" x:Name="Surn"  Text="{Binding Surn}"/>
+                    </Frame>
+
+                    <Frame Margin="0, 20, 0, 20" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+       WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                        <Entry Placeholder="Имя" TextColor="White" FontSize="27" 
+           PlaceholderColor="#DDA8B9" Keyboard="Text" x:Name="Name" Text="{Binding Name}"/>
+                    </Frame>
+
+                    <Label Text="Дата рождения:" FontFamily="Montserrat" FontSize="20" TextColor="#B6174B"
+Margin="20, -20, 0, 0" FontAttributes="Bold"/>
+                    <Frame Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+    WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                <DatePicker Format="dd-MMM-yyyy" TextColor="White" FontSize="27" x:Name="Dat"  Date="{Binding Dat}"/>
+                    </Frame>
+
+                    <Frame Margin="0, 20, 0, 0" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                        <Entry Placeholder="Номер телефона" TextColor="White" FontSize="27" 
+    PlaceholderColor="#DDA8B9" Keyboard="Telephone" x:Name="Tel" Text="{Binding Tel}"/>
+                    </Frame>
+
+
+                    <StackLayout VerticalOptions="EndAndExpand">
+                        <Button  Text="Далее" FontFamily="Montserrat" FontSize="30" x:Name="button"
+ TextColor="White" WidthRequest="340" HeightRequest="58" Margin="0, 0, 0, 10" 
+ CornerRadius="30" HorizontalOptions="Center" BackgroundColor="#B6174B" Clicked="Bye"/>
+                       
+
+                    </StackLayout>
+                </StackLayout>
+    </StackLayout>
+ 
+</ContentPage>

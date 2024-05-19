@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Magazine.Model" xmlns:local1="clr-namespace:Magazine"
+             xmlns:converters="clr-namespace:Magazine.Converters"
+             x:Class="Magazine.App">
+    <Application.Resources>
+       
+        <ResourceDictionary>
+            <RadialGradientBrush x:Key="CenteredGradient">
+                <GradientStop Color="#FFFFFF" Offset="0.5"/>
+                <GradientStop Color="#EBF3DD" Offset="1"/>
+            </RadialGradientBrush>
+        </ResourceDictionary>
+
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#B6174B"/>
+            </Style>
+        </ResourceDictionary>
+
+        <ResourceDictionary>
+            <converters:UriToImageSourceConverter x:Key="UriToImageSourceConverter" />
+        </ResourceDictionary>
+
+
+    </Application.Resources>
+</Application>

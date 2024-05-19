@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Magazine.MainTab" Background="{StaticResource CenteredGradient}"
+            xmlns:local="clr-namespace:Magazine"
+            NavigationPage.HasNavigationBar="False"
+            BarBackgroundColor="#B6174B"
+            SelectedTabColor="White"
+            UnselectedTabColor="#DDA8B9"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+            android:TabbedPage.ToolbarPlacement="Bottom">
+    
+    <local:Home Title="Главная" IconImageSource="domP"/>
+    <local:Search Title="Поиск" IconImageSource="LypaP"/>
+    <local:Cart Title="Корзина" IconImageSource="korzP"/>
+    <local:Profile Title="Профиль" IconImageSource="peopP"/>
+
+</TabbedPage>

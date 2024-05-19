@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Magazine.Authorization" Background="{StaticResource CenteredGradient}">
+
+    <StackLayout Padding="20">
+        <Label Text="Авторизация" FontFamily="Montserrat" FontSize="50" TextColor="#B6174B"
+       HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="0, 40, 0, 0"/>
+
+        <StackLayout VerticalOptions="CenterAndExpand" Margin=" 0, 30, 0, 0">
+            <Frame Margin="0, 20, 0, 0" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+               WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                <Entry Placeholder="Логин" TextColor="White" FontSize="27" 
+                   PlaceholderColor="#DDA8B9" Keyboard="Default" x:Name="Log"/>
+            </Frame>
+
+            <Frame Margin="0, 10, 0, 0" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+               WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                <Entry Placeholder="Пароль" TextColor="White" FontSize="27" x:Name="Pas"
+                   PlaceholderColor="#DDA8B9" IsPassword="True" Keyboard="Default"/>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Button  Text="Далее" FontFamily="Montserrat" FontSize="30" Clicked="ToInitial"
+                TextColor="White" WidthRequest="340" HeightRequest="58" Margin="0, 0, 0, 10" 
+                CornerRadius="30" HorizontalOptions="Center" BackgroundColor="#B6174B" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Нет аккаунта?" FontFamily="Montserrat" FontSize="22" 
+                   TextColor="#B6174B"/>
+
+
+                <Button Text="РЕГИСТРАЦИЯ" FontFamily="Montserrat" FontSize="22" TextColor="#561429"
+                        FontAttributes="Bold" BackgroundColor="Transparent" 
+                        Margin="-3, -9, 0, 0" BorderColor="Transparent" BorderWidth="0" 
+                        Padding="0" Clicked="ToRegistration"/>
+
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+   
+</ContentPage>
