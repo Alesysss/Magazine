@@ -10,6 +10,9 @@
             FontAttributes="Bold" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
            
         </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="cartStackLayout"></StackLayout>
+        </ScrollView>
     </StackLayout>
    
 </ContentPage>

@@ -21,8 +21,10 @@ namespace Magazine
             NavigationPage.SetHasNavigationBar(this, false);
             products = new List<Products>();
             Load();
+           
+            
         }
-
+       
         private async void Load()
         {
             try
@@ -37,7 +39,7 @@ namespace Magazine
             }
         }
 
-        private void DisplayProducts(IEnumerable<Products> products)
+        private async void DisplayProducts(IEnumerable<Products> products)
         {
             var mainStack = new StackLayout();
 
@@ -63,9 +65,9 @@ namespace Magazine
 
             var favouriteButton = new Button
             {
-                Text = "Избранное",
+                Text = "О нас",
                 FontFamily = "Montserrat",
-                FontSize = 17,
+                FontSize = 20,
                 TextColor = Color.FromHex("#DDA8B9"),
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 BackgroundColor = Color.Transparent,
@@ -77,9 +79,9 @@ namespace Magazine
 
             var aboutButton = new Button
             {
-                Text = "О нас",
+                Text = "Выход",
                 FontFamily = "Montserrat",
-                FontSize = 17,
+                FontSize = 20,
                 TextColor = Color.FromHex("#DDA8B9"),
                 HorizontalOptions = LayoutOptions.EndAndExpand,
                 BackgroundColor = Color.Transparent,
@@ -104,21 +106,23 @@ namespace Magazine
                     HasShadow = true,
                     Margin = new Thickness(25, 10, 25, 0),
                     WidthRequest = 260,
-                    HeightRequest = 150
+                    HeightRequest = 170
                 };
 
                 var image = new Image
                 {
                     Source = ImageSource.FromUri(new Uri(product.Foto)),
-                    Aspect = Aspect.AspectFill,
-                    HeightRequest = 80,
-                    WidthRequest = 80
+                    Aspect = Aspect.AspectFit, // Изменение аспекта изображения, чтобы изображение не обрезалось
+                    HeightRequest = 100,
+                    WidthRequest = 120
                 };
 
-                var nameLabel = CreateLabel(product.Namee, 18, Color.Black, LayoutOptions.End, new Thickness(40, 5, 0, 0));
-                var priceLabel = CreateLabel(product.Price.ToString(), 16, Color.Black, LayoutOptions.End, new Thickness(40, 5, 0, 0));
+                var nameLabel = CreateLabel(product.Namee, 20, Color.FromHex("#561429"), LayoutOptions.End, new Thickness(40, 5, 0, 0));
+                var priceLabel = CreateLabel(product.Price.ToString(), 18, Color.FromHex("#561429"), LayoutOptions.End, new Thickness(40, 5, 0, 0));
 
-                var button1 = CreateButton("В корзину", Button1_Clicked);
+                var button1 = CreateButton("В корзину", Button1_Clicked, product);
+
+                image.GestureRecognizers.Add(new TapGestureRecognizer(async (s, e) => await Navigation.PushModalAsync(new ImagePage(image.Source))));
 
                 var stackInsideFrame = new StackLayout { Orientation = StackOrientation.Horizontal };
                 stackInsideFrame.Children.Add(image);
@@ -128,38 +132,30 @@ namespace Magazine
                     Children = { nameLabel, priceLabel }
                 });
 
-                var stackInsideFrame1 = new StackLayout { Orientation = StackOrientation.Horizontal, HorizontalOptions = LayoutOptions.End };
-                stackInsideFrame1.Children.Add(button1);
-
                 var stackInsideFrame0 = new StackLayout { Orientation = StackOrientation.Vertical };
                 stackInsideFrame0.Children.Add(stackInsideFrame);
-                stackInsideFrame0.Children.Add(stackInsideFrame1);
+                stackInsideFrame0.Children.Add(button1);
 
                 frame.Content = stackInsideFrame0;
 
-                productsStack.Children.Add(frame);
+                ProductStackLayout.Children.Add(frame);
             }
-
-            var scrollView = new ScrollView { Content = productsStack };
-
-            // Main StackLayout
-            mainStack.Children.Add(topStack);
-            mainStack.Children.Add(scrollView);
-
-            Content = mainStack;
         }
 
-        private Button CreateButton(string text, EventHandler clickHandler)
+
+        private Button CreateButton(string text, EventHandler clickHandler, Products product)
         {
             var button = new Button
             {
                 Text = text,
-                FontSize = 12,
+                FontSize = 20,
                 TextColor = Color.White,
-                BackgroundColor = Color.FromHex("#B6174B"),
+                BackgroundColor = Color.FromHex("#b33760"),
                 HeightRequest = 50,
                 WidthRequest = 100,
-                CornerRadius = 10
+                CornerRadius = 10,
+                Margin = new Thickness(0, 25, 10, 0),
+                BindingContext = product // Установка контекста кнопки
             };
 
             button.Clicked += clickHandler;
@@ -167,10 +163,41 @@ namespace Magazine
             return button;
         }
 
+
         private async void Button1_Clicked(object sender, EventArgs e)
         {
-            // Обработчик события для кнопки "В корзину"
+            try
+            {
+                var button = (Button)sender;
+                var product = (Products)button.BindingContext;
+
+                int userId = App.CurrentUser.Id;
+                decimal price = product.Price;
+
+                var result = await App.Db.AddToCartAsync(userId, product.Id, price);
+
+                if (result != -1)
+                {
+                    await DisplayAlert("Супер", "Товар добавлен в корзину", "OK");
+
+                    var cartPage = new Cart();
+                    NavigationPage.SetHasNavigationBar(cartPage, false);
+                    
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Failed to add product to cart.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Failed to add product to cart: {ex.Message}", "OK");
+            }
         }
+
+
+
+
 
         private Label CreateLabel(string text, int fontSize, Color textColor, LayoutOptions horizontalOptions, Thickness margin)
         {
@@ -191,7 +218,7 @@ namespace Magazine
 
         private async void ToAbout(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new About());
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }

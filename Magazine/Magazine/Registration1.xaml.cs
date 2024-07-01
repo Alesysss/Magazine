@@ -33,13 +33,14 @@ namespace Magazine
             string login = Log.Text;
             string password = Pas.Text;
             //string passwordRepeat = PasRep.Text;
-            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(phone) ||
-               string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(data))
+            if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName)
+                || string.IsNullOrWhiteSpace(data) || string.IsNullOrWhiteSpace(phone)
+                || string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
             {
                 await DisplayAlert("Ошибка", "Пожалуйста, заполните все поля", "OK");
                 return;
             }
-            if (firstName.Length < 3 || firstName.Length > 15)
+            else if (firstName.Length < 3 || firstName.Length > 15)
             {
                 await DisplayAlert("Ошибка", "Фамилия не может быть менее трех и более пятнадцати символов", "Ok");
                 return;

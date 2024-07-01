@@ -2,14 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Magazine.Search" Background="{StaticResource CenteredGradient}">
-   
-        <StackLayout>
+
+    <StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" 
               BackgroundColor="#B6174B" HeightRequest="70" >
-            <Label Text="Категории" FontFamily="Montserrat" FontSize="25" TextColor="White"
-                   FontAttributes="Bold" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
-           
+            <!--<Label Text="Поиск" FontFamily="Montserrat" FontSize="25" TextColor="White"
+                   FontAttributes="Bold" VerticalOptions="Center" Margin="10, 0, 0, 0"/>-->
+            <Entry x:Name="searchEntry" Placeholder="Введите текст для поиска" FontFamily="Montserrat" FontSize="20" 
+                   VerticalOptions="Center" Completed="OnSearchCompleted" Margin="20, 0, 0, 0" TextColor="#DDA8B9"/>
+            <Button Text="Поиск" TextColor="White" BackgroundColor="#B6174B" Font="20" FontAttributes="Bold"
+                    VerticalOptions="Center" Clicked="OnSearchClicked" Margin="50, 0, 0, 0" FontFamily="Montserrat"/>
         </StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="searchResultsStack" VerticalOptions="FillAndExpand"></StackLayout>
+        </ScrollView>
     </StackLayout>
-  
+
 </ContentPage>

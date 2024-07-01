@@ -13,6 +13,6 @@
     <local:Home Title="Главная" IconImageSource="domP"/>
     <local:Search Title="Поиск" IconImageSource="LypaP"/>
     <local:Cart Title="Корзина" IconImageSource="korzP"/>
-    <local:Profile Title="Профиль" IconImageSource="peopP"/>
+    <!--<local:Profile Title="Профиль" IconImageSource="peopP"/>-->
 
 </TabbedPage>

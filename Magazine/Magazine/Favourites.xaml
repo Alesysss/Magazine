@@ -1,15 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Magazine.Favourites" Background="{StaticResource CenteredGradient}">
+             x:Class="Magazine.Favourites"
+             Background="{StaticResource CenteredGradient}">
     <NavigationPage.TitleView>
-        <Label Text="Избранное" FontSize="25" FontFamily="Montserrat" TextColor="White" FontAttributes="Bold"/>
+        <Label Text="О нас" FontSize="25" FontFamily="Montserrat" TextColor="White" 
+         FontAttributes="Bold"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Избранное"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+       
+        <StackLayout Margin="15">
+            <StackLayout VerticalOptions="Center">
+                <Label Text="Главный офис:" FontSize="25" FontFamily="Montserrat" TextColor="#561429" Margin="0, 0, 0, 10" FontAttributes="Bold"/>
+            <Label Text="г. Казань, ул. Большая Красная, д. 55 " FontSize="20" FontFamily="Montserrat" TextColor="#561429" Margin="0, 0, 0, 25"/>
+            <Label Text="Пункт выдачи:" FontSize="25" FontFamily="Montserrat" TextColor="#561429" Margin="0, 0, 0, 10" FontAttributes="Bold"/>
+            <Label Text="г. Казань, ул. Большая Красная, д. 42" FontSize="20" FontFamily="Montserrat" TextColor="#561429" Margin="0, 0, 0, 25"/>
+            <Label Text="Служба поддержки:" FontSize="25" FontFamily="Montserrat" TextColor="#561429" Margin="0, 0, 0, 10" FontAttributes="Bold"/>
+            <Label Text="support_monro@gmail.com" FontSize="20" FontFamily="Montserrat" TextColor="#561429" Margin="0, 0, 0, 0"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Label Text=" С любовью, MONrO!" FontSize="30" FontFamily="Montserrat" TextColor="#561429" Margin="0, 0, 0, 15" FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Magazine.Model"
-             xmlns:converters="clr-namespace:Magazine.Converters"
+
              x:Class="Magazine.Home" Background="{StaticResource CenteredGradient}">
 
    
@@ -11,10 +11,10 @@
                      BackgroundColor="#B6174B" HeightRequest="70" >
             <Label Text="MONrO" FontFamily="Montserrat" FontSize="35" TextColor="White"
                    FontAttributes="Bold" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
-            <Button  Text="Избранное" FontFamily="Montserrat" FontSize="17" TextColor="#DDA8B9"
+            <Button  Text="О нас" FontFamily="Montserrat" FontSize="17" TextColor="#DDA8B9"
                      HorizontalOptions="EndAndExpand"  BackgroundColor="#00FFFFFF" Clicked="ToFavourites"
                      VerticalOptions="Fill" Margin="64, 0, 0, 0" FontAttributes="Bold"/>
-            <Button  Text="О нас" FontFamily="Montserrat" FontSize="17" TextColor="#DDA8B9"
+            <Button  Text="Выход" FontFamily="Montserrat" FontSize="17" TextColor="#DDA8B9"
                      HorizontalOptions="EndAndExpand" BackgroundColor="#00FFFFFF" Clicked="ToAbout" 
                      VerticalOptions="Fill" Margin="0" FontAttributes="Bold"/>
 

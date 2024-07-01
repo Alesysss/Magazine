@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Magazine.Authorization" Background="{StaticResource CenteredGradient}">
-
+   
     <StackLayout Padding="20">
         <Label Text="Авторизация" FontFamily="Montserrat" FontSize="50" TextColor="#B6174B"
        HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="0, 40, 0, 0"/>

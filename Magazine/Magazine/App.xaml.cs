@@ -12,6 +12,7 @@ namespace Magazine
     public partial class App : Application
     {
         private static DB db;
+        public static Users CurrentUser { get; set; }
         public static DB Db 
         { 
             get
@@ -31,10 +32,23 @@ namespace Magazine
 
             //MainPage.SetValue(ConverterProperty, new ByteArrayToImageSourceConverter());
 
-            MainPage = new NavigationPage(new MainPage());
+            //!!! MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainAdmin());
 
         }
-   
+
+        // Метод для установки текущего пользователя
+        public static void SetCurrentUser(Users user)
+        {
+            CurrentUser = user;
+        }
+
+        // Метод для очистки текущего пользователя (например, при выходе из системы)
+        public static void ClearCurrentUser()
+        {
+            CurrentUser = null;
+        }
+
         protected override void OnStart()
         {
         }

@@ -19,9 +19,8 @@ namespace Magazine.Model
         public int Product_id { get; set; }
         [ManyToOne]
         public Products Products { get; set; }
-        public int Quantity { get; set; }
         public decimal Moneys { get; set; }
+        public int Quantity { get; set; }
 
-       
     }
 }

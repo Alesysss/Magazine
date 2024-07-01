@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Magazine.AddAdmin" Background="{StaticResource CenteredGradient}">
+    <NavigationPage.TitleView>
+        <Label Text="Добавить товар" FontSize="25" FontFamily="Montserrat" TextColor="White" FontAttributes="Bold"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Frame Margin="0, 130, 0, 10" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+                   WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                <Entry Placeholder="Название" TextColor="White" FontSize="27" 
+                       PlaceholderColor="#DDA8B9" Keyboard="Text" x:Name="Name"/>
+            </Frame>
+
+            <Frame Margin="0, 10, 0, 10" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+                   WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                <Entry Placeholder="Цена" TextColor="White" FontSize="27" 
+                       PlaceholderColor="#DDA8B9" Keyboard="Numeric" x:Name="Price"/>
+            </Frame>
+
+            <Frame Margin="0, 10, 0, 10" Padding="10" BackgroundColor="#B24468" CornerRadius="30"
+                   WidthRequest="340" HeightRequest="48" HorizontalOptions="Center">
+                <Entry Placeholder="Фото" TextColor="White" FontSize="27" 
+                       PlaceholderColor="#DDA8B9" Keyboard="Text" x:Name="Foto"/>
+            </Frame>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button  Text="Добавить" FontFamily="Montserrat" FontSize="30" x:Name="button"
+                         TextColor="White" WidthRequest="340" HeightRequest="58" Margin="0, 0, 0, 20" 
+                         CornerRadius="30" HorizontalOptions="Center" BackgroundColor="#B6174B" 
+                         Clicked="AddProd"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

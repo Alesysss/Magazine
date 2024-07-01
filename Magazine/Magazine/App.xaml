@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Magazine.Model" xmlns:local1="clr-namespace:Magazine"
-             xmlns:converters="clr-namespace:Magazine.Converters"
+             
              x:Class="Magazine.App">
     <Application.Resources>
        
@@ -18,9 +18,7 @@
             </Style>
         </ResourceDictionary>
 
-        <ResourceDictionary>
-            <converters:UriToImageSourceConverter x:Key="UriToImageSourceConverter" />
-        </ResourceDictionary>
+      
 
 
     </Application.Resources>

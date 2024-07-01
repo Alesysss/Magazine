@@ -20,23 +20,35 @@ namespace Magazine
 
         private async void ToInitial(object sender, EventArgs e)
         {
-            string login = Log.Text.Trim(); // Замените на логин, введенный пользователем
-            string password = Pas.Text.Trim(); // Замените на пароль, введенный пользователем
+            string login = Log.Text.Trim();
+            string password = Pas.Text.Trim();
+            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+            {
+                await DisplayAlert("Ошибка", "Пожалуйста, заполните все поля", "OK");
+                return;
+            }
 
             var db = App.Db;
             var user = await db.AuthenticateAsync(login, password);
-
-            if (user != null)
+            
+            if (user != null||string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
             {
-              
-                await Navigation.PushAsync(new MainTab());
+                if (login=="admin")
+                {
+                   // App.SetCurrentUser(user); // Установка текущего пользователя в приложении
+                    await Navigation.PushAsync(new MainAdmin());
+                }
+                else {
+                    App.SetCurrentUser(user); // Установка текущего пользователя в приложении
+                    await Navigation.PushAsync(new MainTab()); 
+                }
             }
             else
             {
-                await DisplayAlert("Ошибка", "Сообщение об ошибке", "OK");
+                await DisplayAlert("Ошибка", "Пользователь не найден", "OK");
             }
-            
         }
+
 
         private async void ToRegistration(object sender, EventArgs e)
         {
